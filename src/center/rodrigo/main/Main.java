@@ -2,6 +2,7 @@ package center.rodrigo.main;
 
 import center.rodrigo.connection.Connect;
 import center.rodrigo.core.JSONCore;
+import center.rodrigo.core.JSONCoreArray;
 import center.rodrigo.model.Cep;
 
 public class Main {
@@ -10,6 +11,7 @@ public class Main {
 
         Connect c = new Connect();
         JSONCore jCore = new JSONCore();
+        JSONCoreArray jcad = new JSONCoreArray();
 
         // consome endpoint passando o CEP
         String json = c.consomeEndPoint("01311300");
@@ -21,5 +23,10 @@ public class Main {
         // transforma Objeto em JSON
         String myJson = jCore.cepToJSON(cep);
         System.out.println(myJson);
+
+        // JSON com array demo
+        String s = jcad.createJOSNArray();
+        System.out.println(s);
+        jcad.consumeJSONArray(s);
     }
 }
